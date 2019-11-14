@@ -1,0 +1,39 @@
+
+<div class="row mx-0 p-3 bg-light" style="background-image: url('/assets/profile.jpg'); background-position: center; background-repeat: no-repeat;background-size: cover;">
+    <div class="col-11 mx-auto p-2" style=" background-color: rgba(0,0,0,0.7) ">
+      <div class="container p-4 text-light">
+          <div class="d-flex">
+           <div class="text-left"><h4>Edit Your Profile</h4></div>
+          </div>
+          <hr>
+          <div class="container" style="width: 90%;">
+         
+            <form  #userForm="ngForm" (ngSubmit)="submit()" novalidate>
+            <div class="form-group">
+              <label >Title : </label>
+              <input required #title="ngModel" type="text" class="form-control" [class.is-invalid]="title.invalid && title.touched"  value="{{blog.title}}" name="title" [(ngModel)]="blog.title">
+              <small class="text-danger" [class.d-none]="title.valid || title.untouched" >Title is required</small>
+            </div>
+              <div class="form-group">
+                <label>Your Blog : </label>
+                <textarea  required #description="ngModel" value="{{blog.description}}" [class.is-invalid]="description.invalid && description.touched"  class="form-control " placeholder="Enter Blog Here" name="description" rows="15" [(ngModel)]="blog.description"></textarea>
+                <small class="text-danger" [class.d-none]="description.valid || description.untouched" >Content is required</small>
+              </div>
+              <div class="form-group">
+                    Do you want to make it private ? : <div class="d-flex">
+                      <div class="mt-2"><h5>Private</h5></div>
+                      <div class="ml-3 mt-1 ">
+                   <label class="switch">  
+                     <input class="form-control" type="checkbox" name="priv" [(ngModel)]="blog.priv">
+                     <span class="slider round"></span>  
+                   </label>
+                   </div>
+                   </div>
+                </div>   
+              <button type="submit" class="btn btn-dark text-light"  [disabled]="userForm.form.invalid" >Submit</button>
+            </form>
+            </div>
+     </div>
+    </div>
+  </div>
+  

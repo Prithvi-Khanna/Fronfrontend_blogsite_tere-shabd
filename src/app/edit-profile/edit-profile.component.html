@@ -1,0 +1,41 @@
+<div class="row mx-0 p-3 bg-light" style="background-image: url('/assets/profile.jpg'); background-position: center; background-repeat: no-repeat;background-size: cover;">
+        <div class="col-11 mx-auto p-2" style=" background-color: rgba(0,0,0,0.7) ">
+          <div class="container p-4 text-light">
+              <div class="d-flex">
+               <div class="text-left"><h4>Edit Your Profile</h4></div>
+              </div>
+              <hr>
+              <div class="container" style="width: 90%;">
+              <form action="/action_page.php">
+                <div class="form-group">
+                  <label for="username">Username : </label>
+                  <input type="text" class="form-control" id="username" value="{{username}}" name="username" disabled [(ngModel)]="user.username">
+                </div>
+                  <div class="form-group">
+                    <label for="email">Email : </label>
+                    <input type="email" class="form-control" id="email" value="{{email}}" name="email" [(ngModel)]="user.email">
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Contact : </label>
+                    <input type="text" class="form-control" id="phone" value="{{phone}}" name="phone" [(ngModel)]="user.phone">
+                  </div>
+                  <div class="form-group">
+                    <label for="gender">Gender : </label>
+                    <select class="form-control" id="gender" name="gender" [(ngModel)]="user.gender">
+                           <option>Male</option>
+                           <option>Female</option>
+                           <option>Other</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" [(ngModel)]="pswd">
+                    <small style="color: red" *ngIf="!isPassword()">Password is incorrect</small>
+                  </div>
+                  <button type="submit" class="btn btn-dark text-light" (click)="submit()">Submit</button>
+                </form>
+                </div>
+         </div>
+        </div>
+      </div>
+      

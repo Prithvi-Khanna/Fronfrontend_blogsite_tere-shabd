@@ -1,0 +1,37 @@
+<div style="background-image: url('/assets/wall.jpeg'); background-position: center; background-repeat: no-repeat;background-size: cover; height: 900px;" >  
+
+    <div class="container">
+       <div class="d-flex justify-content-center h-100">
+          <div class="card">
+             <div class="card-header">
+                <h3>Log In</h3>
+               
+             </div>
+             <div class="card-body">
+               <form action="/home" #userForm="ngForm" (ngSubmit)="check_login(name.value,pass.value)" novalidate>
+                  <div class="form-group">
+                    <label   class="text-light" for="usr">Username:</label>
+                    <input type="text" required #name="ngModel" [class.is-invalid]="name.invalid && name.touched" class="form-control" id="usr" name="username" placeholder="Enter Username" ngModel>
+                   <small class="text-danger" [class.d-none]="name.valid || name.untouched" >Name is required</small>
+                  </div>
+                  <div class="form-group">
+                    <label class="text-light" for="pwd">Password:</label>
+                    <input type="password" required #pass="ngModel" [class.is-invalid]="pass.invalid && pass.touched" class="form-control" id="pwd" name="password" placeholder="Enter Password" ngModel>
+                   <small class="text-danger" [class.d-none]="pass.valid || pass.untouched" >Password is required</small>
+                  </div>
+                  <br>
+                  <button [disabled]="userForm.form.invalid" class="btn text-dark" type="submit" style="width: 100% ; background: orangered;">Submit</button>
+                </form>
+             </div>
+             <div class="card-footer">
+                <div class="d-flex justify-content-center links">
+                   Don't have an account?<a href="/sign-up">Sign Up</a>
+                </div>
+                <div class="d-flex justify-content-center">
+                   <a href="#">Forgot your password?</a>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>

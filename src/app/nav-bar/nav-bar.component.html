@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+
+<nav class="navbar navbar-expand-sm navbar-dark" style="background: #ff4500;">
+       <a class="navbar-item text-light font-weight-bolder w3-tangerine" href="/home" style="text-decoration: none;">Tere Shabd</a>
+      <div class="ml-auto" *ngIf="isUserLoggedIn1()">
+        <form class="form-inline" action="/action_page.php">             
+          <input class="form-control mr-2" type="text" placeholder="Search here... " name="SEARCH" [(ngModel)]="SEARCH" (keyup)="search()">
+         
+          <div class="mr-2">
+      <select class="form-control bg-dark text-light" id="sel1" name="TYPE" [(ngModel)]="TYPE"(change)="change()">
+        <option selected>Blogs</option>
+        <option>Users</option>
+      </select>
+            </div>
+         
+          <button class="btn btn-dark" type="submit" style="color: lightgray;" (click)="search()"><i class="fas fa-search"></i>  Search</button>
+          <button class="ml-2 btn btn-danger" style="color: lightgray;" (click)="clear()"><i class="fas fa-trash"></i>  Clear</button>
+        </form>
+      </div>
+       <div style="display: flex ; justify-content: space-between ; margin-left: auto">
+        <div *ngIf="isUserLoggedIn1()"><a class="nav-link text-light" href="/profile">Profile <i class="fa fa-user" aria-hidden="true"></i></a></div> 
+        <div *ngIf="isUserLoggedIn1()"><a class="nav-link text-light" href="/add-blog">New Blog  <i class="fa fa-plus" aria-hidden="true"></i></a></div> 
+        <div *ngIf="isUserLoggedIn1()"><a class="nav-link text-light" href="/login">LogOut  <i class="fa fa-user" aria-hidden="true"></i></a></div> 
+        <div *ngIf="!isUserLoggedIn1()"><a class="nav-link text-light" href="/login">LogIn  <i class="fa fa-user" aria-hidden="true"></i></a></div>
+         <div *ngIf="!isUserLoggedIn1()"><a class="nav-link text-light" href="/sign-up">SignUp  <i class="fa fa-users" aria-hidden="true"></i></a></div>
+       </div>
+
+  </nav>
+ 
