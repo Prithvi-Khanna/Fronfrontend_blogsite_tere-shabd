@@ -35,4 +35,29 @@ export class GetBlogService {
   {
       return this.http.get('http://localhost:2020/blog/view_user/'+username);
   }
+
+  view_followUser(username)
+  {
+      return this.http.get('http://localhost:2020/blog/view_followUser/'+username);
+  }
+
+  follow(username)
+  {
+    return this.http.get('http://localhost:2020/follow/add_follower/'+username);
+  }
+
+  unfollow(username)
+  {
+    return this.http.get('http://localhost:2020/follow/remove_follower/'+username);
+  }
+
+  checkfollow()
+  {
+    return this.http.get('http://localhost:2020/follow/check_follower');
+  }
+
+  get_followers()
+  {
+    return this.http.get('http://localhost:2020/follow/get_followers');
+  }
 }

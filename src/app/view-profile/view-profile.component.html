@@ -2,15 +2,14 @@
     <div class="mx-auto p-5 text-center">
      <div class="container d-flex">
       <div>
-          <img class="thumbnail rounded-circle mt-4" src="/assets/user.png" style="background: white ;width: 30%; height: 60%"><br><br>
-           <button class="btn btn-dark text-lght" (click)="editprofile()">Edit Profile</button>
+          <img class="thumbnail rounded-circle mt-4 " src="/assets/money.jpg" style="background: white ;width: 40%; height: 75%"><br><br>
       </div>
       <div>
-          <div><h2 class="font-weight-lighter text-left" style=" margin-top: 10%;">USER</h2></div>
+          <div><h2 class="font-weight-lighter text-left" style=" margin-top: 10%;">{{this.USERNAME}}</h2></div>
           <div class="d-flex justify-content-between">
-              <div>0  Blogs</div>
-              <div class="mx-5">0  Followers</div>
-              <div>0  Following</div>
+              <div>{{DATA[0].user.blogs}}  Blogs</div>
+              <div class="mx-5">{{DATA[0].user.followers}}  Followers</div>
+              <div>{{DATA[0].user.following}}  Following</div>
           </div>
           <div>
               <div *ngIf="!Isfollow" class="mt-2"><button class="btn btn-info" style="width: 100%" (click)="follow()">Follow</button></div>

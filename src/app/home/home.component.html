@@ -1,7 +1,7 @@
 <div class="container-fluid bg-light mx-auto p-1 row d-flex">
 <div class="p-3 bg-dark" style="width : 25% ; background: white;">
   <div class="text-center">
-   <div><img class="thumbnail rounded-circle mt-4" src="/assets/user.png" style="background: white ;width: 30%; height: 30%"></div>
+   <div><img class="thumbnail rounded-circle mt-4" src="/assets/money.jpg" style="background: white ;width: 45%; height: 45%"></div>
    <div class="mt-3 mb-3">
    <div><h3 style="color: lightgray;">{{user1}}</h3></div>
    </div>
@@ -21,6 +21,10 @@
    <hr>
 
  <div>
+   <div class="container" *ngIf="notFound">
+     <img src="/assets/gif.gif" style="width: 70%; height: 25%;">
+     <hr>
+   </div>
    <div *ngIf="IsBlog" class="container">
        <div class="mb-3" *ngFor="let d of DATA_B" style="border: 1px solid lightgray;">
         <div class="p-2 d-flex" style="background: wheat;">
@@ -36,6 +40,7 @@
           {{d.user.username}}
         </div>
        </div>
+       <hr>
    </div>
 
    <div *ngIf="IsUser" class="container">
@@ -49,12 +54,13 @@
        </div>
        </div>
       </div>
+     <hr> 
   </div>
 </div>
 
 <div>
-  <div *ngIf="IsBlog" class="container">
-      <div class="mb-3" *ngFor="let d of DATA_HOME" style="border: 1px solid lightgray;">
+  <div class="container">
+      <div class="mb-3" *ngFor="let d of DATA_H" style="border: 1px solid lightgray;">
        <div class="p-2 d-flex" style="background: wheat;">
          <div >{{d.title}}</div>
          <div class="text-right ml-auto">{{d.date1}}</div>

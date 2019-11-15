@@ -6,18 +6,20 @@
               </div>
               <hr>
               <div class="container" style="width: 90%;">
-              <form action="/action_page.php">
+              <form #userForm="ngForm" (ngSubmit)="submit()" novalidate>
                 <div class="form-group">
                   <label for="username">Username : </label>
                   <input type="text" class="form-control" id="username" value="{{username}}" name="username" disabled [(ngModel)]="user.username">
                 </div>
                   <div class="form-group">
                     <label for="email">Email : </label>
-                    <input type="email" class="form-control" id="email" value="{{email}}" name="email" [(ngModel)]="user.email">
+                    <input type="email" required #email="ngModel" [class.is-invalid]="email.invalid && email.touched" class="form-control" id="email" value="{{email}}" name="email"  pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" [(ngModel)]="user.email">
+                    <small class="text-danger" [class.d-none]="email.valid || email.untouched" >Enter a valid Email Address</small>
                   </div>
                   <div class="form-group">
                     <label for="phone">Contact : </label>
-                    <input type="text" class="form-control" id="phone" value="{{phone}}" name="phone" [(ngModel)]="user.phone">
+                    <input type="text" required #phone="ngModel" [class.is-invalid]="phone.invalid && phone.touched" class="form-control" id="phone" value="{{phone}}" name="phone" pattern="^[0-9]{10}$" [(ngModel)]="user.phone">
+                    <small class="text-danger" [class.d-none]="phone.valid || phone.untouched" >Enter a valid Email Address</small>
                   </div>
                   <div class="form-group">
                     <label for="gender">Gender : </label>
@@ -32,7 +34,7 @@
                     <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" [(ngModel)]="pswd">
                     <small style="color: red" *ngIf="!isPassword()">Password is incorrect</small>
                   </div>
-                  <button type="submit" class="btn btn-dark text-light" (click)="submit()">Submit</button>
+                  <button type="submit" class="btn btn-dark text-light">Submit</button>
                 </form>
                 </div>
          </div>

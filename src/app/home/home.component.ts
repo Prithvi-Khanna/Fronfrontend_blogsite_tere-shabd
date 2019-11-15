@@ -14,9 +14,11 @@ export class HomeComponent implements OnInit {
   user1;
   DATA_B : any;
   DATA_U : any;
+  DATA_H : any;
   SEARCH;
   IsUser = false;
   IsBlog = false;
+  notFound = false;
   ngOnInit() {
     let user = sessionStorage.getItem('username')
     this.user1=user;
@@ -25,10 +27,21 @@ export class HomeComponent implements OnInit {
       this.SEARCH = param.blog;
       if(typeof(this.SEARCH) !== "undefined")
       {
-        this.service.search(this.SEARCH).subscribe( data => {
+        this.service.search(this.SEARCH).subscribe( (data) => {
           this.DATA_B = data;
-          this.IsBlog = true;
-          })
+          if(this.DATA_B[0].title == "null")
+          {
+            this.IsBlog = false;
+            this.notFound =true;
+          }  
+          else{
+            this.IsBlog = true;
+          }
+        },
+        (error =>{
+             this.notFound = true;
+        })
+        )
       }
       else if(typeof(param.user) !== "undefined")
       {
@@ -36,9 +49,25 @@ export class HomeComponent implements OnInit {
         this.service1.searchUser(this.SEARCH).subscribe( data => {
           this.DATA_U = data;
           this.IsUser = true;
-         })
+          if(this.DATA_U[0].username == "null")
+          {
+            this.IsUser = false;
+            this.notFound =true;
+          }  
+          else{
+            this.IsUser = true;
+          }
+        },
+        (error =>{
+             this.notFound = true;
+        })
+        )
       } 
         })
+
+     this.service.get_followers().subscribe( data => {
+       this.DATA_H=data;    
+     })  
 
         
   }

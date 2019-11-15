@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
 
 <nav class="navbar navbar-expand-sm navbar-dark" style="background: #ff4500;">
-       <a class="navbar-item text-light font-weight-bolder w3-tangerine" href="/home" style="text-decoration: none;">Tere Shabd</a>
+       <a class="navbar-item text-light font-weight-bolder w3-tangerine" href="/home" style="text-decoration: none;">Tere Shabd    <i class="fa fa-magic" aria-hidden="true"></i></a>
       <div class="ml-auto" *ngIf="isUserLoggedIn1()">
         <form class="form-inline" action="/action_page.php">             
           <input class="form-control mr-2" type="text" placeholder="Search here... " name="SEARCH" [(ngModel)]="SEARCH" (keyup)="search()">
