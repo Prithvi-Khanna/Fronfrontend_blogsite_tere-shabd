@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Profile } from 'selenium-webdriver/firefox';
 import { blog } from '../blog';
 import { GetBlogService } from '../get-blog.service';
 import { Router } from '@angular/router';
@@ -14,6 +13,11 @@ export class ProfileComponent implements OnInit {
   constructor(private service : GetBlogService , private router : Router) { }
   DATA : any;
   blog1;
+  details = {
+    blogId : 0,
+    likes : false,
+    dislikes : false,
+  };
   ngOnInit() {
     
        this.service.get_bloguser().subscribe( data =>
@@ -44,5 +48,7 @@ export class ProfileComponent implements OnInit {
   {
     
   }
+
+ 
   
 }

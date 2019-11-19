@@ -55,6 +55,5 @@ export class NavBarComponent implements OnInit {
   }
   change()
   {
-
   }
 }

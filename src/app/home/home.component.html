@@ -39,8 +39,18 @@
           Published By :<br>
           {{d.user.username}}
         </div>
+        <hr>
+        <div class="mb-3 d-flex p-2">
+         <div class="mr-3">{{d.likes}}   <a style="cursor: pointer;" (click)="like(d.blogId)"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></div>
+         <div class="mr-3">{{d.dislikes}}   <a style="cursor: pointer;" (click)="dislike(d.blogId)"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></div>
+         <div class="mr-3">{{d.comments}}   <i class="fa fa-comment" aria-hidden="true"></i></div>
+         
+     </div>
+     <div class="form-group p-2">
+      <div><textarea style="width: 50%;" placeholder="Write comment..." name="comm" [(ngModel)]="comm"></textarea></div>
+      <div><button type="submit" (click)="comment(d.blogId)">Add comment</button></div>
+  </div>
        </div>
-       <hr>
    </div>
 
    <div *ngIf="IsUser" class="container">
@@ -49,9 +59,7 @@
          {{d.username}}
          <div class="d-flex">
          <div><button class="btn btn-info" (click)="viewProfile(d.username)">View profile</button></div>
-         <div class="ml-auto"><button class="btn btn-danger"> <i class="fa fa-minus-circle" aria-hidden="true"></i>  Unfollow</button></div>
-         <div class="ml-auto"><button class="btn btn-info"> <i class="fa fa-plus" aria-hidden="true"></i>  Follow</button></div>
-       </div>
+        </div>
        </div>
       </div>
      <hr> 
@@ -69,10 +77,30 @@
          {{d.description}}
        </div>
        <hr>
+       
        <div class="p-2">
          Published By :<br>
          {{d.user.username}}
        </div>
+       <hr>
+       <div class="mb-3 d-flex p-2">
+        <div class="mr-3">{{d.likes}}   <a style="cursor: pointer;" (click)="like(d.blogId)"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></div>
+        <div class="mr-3">{{d.dislikes}}   <a style="cursor: pointer;" (click)="dislike(d.blogId)"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></div>
+        <div class="mr-3">{{d.comments}}   <i class="fa fa-comment" aria-hidden="true"></i></div>
+        
+    </div>
+    <hr>
+    <div class="p-2">
+      <div class="card" *ngFor="let c of total" style="border : 1px solid gray">
+        
+      </div>
+    </div>
+    <div class="form-group p-2">
+      <div><textarea  style="width: 50%;" placeholder="Write comment..." name="comm"  [(ngModel)]="comm">
+      
+      </textarea></div>
+      <div><button type="submit" (click)="comment(d.blogId)">Add comment</button></div>
+  </div>
       </div>
   </div>
 

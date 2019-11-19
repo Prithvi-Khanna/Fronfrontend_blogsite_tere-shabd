@@ -60,4 +60,24 @@ export class GetBlogService {
   {
     return this.http.get('http://localhost:2020/follow/get_followers');
   }
+
+  get_details(id)
+  {
+    return this.http.get('http://localhost:2020/details/get_likes/' + id);
+  }
+  like(id)
+  {
+    return this.http.post('http://localhost:2020/details/like', id , { headers : new HttpHeaders( { 'Content-Type' : 'application/json' } )});
+  }
+
+  dislike(id)
+  {
+    return this.http.post('http://localhost:2020/details/like' , id , { headers : new HttpHeaders( { 'Content-Type' : 'application/json' } )});
+  }
+
+  comment(id)
+  {
+    return this.http.post('http://localhost:2020/details/comment' , id , { headers : new HttpHeaders( { 'Content-Type' : 'application/json' } )});
+  }
+
 }
